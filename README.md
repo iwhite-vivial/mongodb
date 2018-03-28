@@ -1,13 +1,13 @@
-This is a quick script to get up and running using PHP to connect to mongo.
+#MongoDB Document Editor
+##### This is a quick script to get up and running using PHP to connect to mongo.
 
-First, run
+ First, run
 ```terminal
 $ composer install
 ```
 
 To quickly connect, rename the "connection.json.template" file to "connection.json"
-DO NOT RENAME THE KEYS. 
-
+##### DO NOT RENAME THE KEYS. 
 ```json
 { 
       "server" : "<server_name>",
@@ -17,7 +17,9 @@ DO NOT RENAME THE KEYS.
 }
 ```
 
-Create a new php file and add login.php to the top and you should be ready to code.
+*If you would like to automate your login, edit the login.php to always use your connection.json.*
+
+Next, create a new PHP file and add login.php to the top and you should be ready to code.
 
 ```php
 <?php
@@ -33,4 +35,6 @@ Once your script is written.
 
 php <yourscript.php>
 
-For more information, refer to the mongodb documentation and/or http://php.net/manual/en/book.mongo.php
+For more information, refer to the mongodb documentation and/or
+[MongoDB PHP Doc](http://php.net/manual/en/book.mongo.php)
+
