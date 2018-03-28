@@ -9,13 +9,19 @@ require 'login.php';
 
 $start_time = time();
 
+/**
+ * @var MongoDB\Database   $adsDatastore
+ * @var MongoDB\Collection $settingCollection
+ * @var MongoDB\Collection $campaignsCollection
+ * @var MongoDB\Driver\Cursor $campaignRecords
+ */
 $adsDatastore       = $client->ads;
 
 $settingsCollection  = $adsDatastore->settings;
+
 $campaignsCollection = $adsDatastore->campaigns;
-var_dump([get_class($adsDatastore), get_class($settingsCollection)]);
+
 $campaignRecords = $campaignsCollection->find([], ['owner_id' => 1, 'network_data' => ['fbCampaign' => ['account_id']]]);
-var_dump(get_class($campaignRecords));die();
 
 $unique = [];
 foreach ($campaignRecords as $record) {
