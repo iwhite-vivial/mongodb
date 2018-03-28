@@ -1,0 +1,6 @@
+{
+    "server" : "mongo.mongodb.com",
+    "port": 27017,
+    "username": "IAMMONGO",
+    "password": "MONGOSTRONG"
+}

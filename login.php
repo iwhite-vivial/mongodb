@@ -18,7 +18,7 @@ if ($yesOrNo) {
      *   connection.json must be in the form.
      *   { 
      *       "server" : "<server_name>",
-     *       "port"   : <port_number",
+     *       "port"   : <port_number,
      *       "username" : "<username>",
      *       "password" : "<password>"
      *   }
@@ -26,7 +26,7 @@ if ($yesOrNo) {
     $connInfo = file_get_contents("connection.json");
     extract(json_decode($connInfo, true));
 } else {
-    $server   = promptInput('Hello, please enter your server', 'vivial.mongodb.com');
+    $server   = promptInput('Hello, please enter your server', 'mongo.mongodb.com');
     $port     = promptInput('Now enter your port number', '27017');
     $username = promptInput('Enter a valid username');
     $password = promptInput('Enter a valid password');
