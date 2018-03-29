@@ -46,7 +46,7 @@ $difference = $end_time - $start_time;
 echo 'Unique by owner_id: ' . count($unique) . PHP_EOL;
 echo "Start Time: " . date('h:i:s', $start_time) . PHP_EOL;
 echo "End Time: " . date('h:i:s', $end_time) . PHP_EOL;
-echo "Difference: " . $difference . ' seconds' .PHP_EOL;
+echo "Difference: " . $difference . ' seconds' . PHP_EOL;
 var_dump($unique);
 
 
