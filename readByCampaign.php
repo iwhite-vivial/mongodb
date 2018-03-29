@@ -29,13 +29,15 @@ foreach ($campaignRecords as $record) {
 
     $campaignAccountId = $record['network_data']['fbCampaign']['account_id'];
 
-    if ('act_'.$campaignAccountId !== $settingRecord['ad_account']) {
-        $unique[$record['owner_id']] =
-            [
-                'name' => $record['name'],
-                'settings_ad_account' => $settingRecord['ad_account'],
-                'campaign_account_id' => $campaignAccountId,
-            ];
+    if ($campaignAccountId) {
+        if ('act_' . $campaignAccountId !== $settingRecord['ad_account']) {
+            $unique[$record['owner_id']] =
+                [
+                    'name' => $record['name'],
+                    'settings_ad_account' => $settingRecord['ad_account'],
+                    'campaign_account_id' => $campaignAccountId,
+                ];
+        }
     }
 }
 

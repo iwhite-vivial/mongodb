@@ -1,4 +1,4 @@
-#MongoDB Document Editor
+# MongoDB Document Editor
 ##### This is a quick script to get up and running using PHP to connect to mongo.
 
  First, run
