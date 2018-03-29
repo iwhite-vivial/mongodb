@@ -29,7 +29,9 @@ foreach ($campaignRecords as $record) {
 
     $campaignAccountId = $record['network_data']['fbCampaign']['account_id'];
 
-    if ('act_'.$campaignAccountId !== $settingRecord['ad_account']) {
-        $settingsCollection->updateOne(['owner_id' => $record['owner_id']], ['$set' => ['ad_account' => 'act_'.$campaignAccountId]]);
+    if ($campaignAccountId)  {
+        if ('act_' . $campaignAccountId !== $settingRecord['ad_account']) {
+            $settingsCollection->updateOne(['owner_id' => $record['owner_id']], ['$set' => ['ad_account' => 'act_' . $campaignAccountId]]);
+        }
     }
 }
