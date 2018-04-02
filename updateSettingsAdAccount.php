@@ -25,13 +25,15 @@ $campaignsCollection = $adsDatastore->campaigns;
 $campaignRecords = $campaignsCollection->find([], ['owner_id' => 1, 'network_data' => ['fbCampaign' => ['account_id']]]);
 
 foreach ($campaignRecords as $record) {
-    $settingRecord  = $settingsCollection->findOne(['owner_id' => $record['owner_id']]);
+    $settingsRecords = $settingsCollection->find(['owner_id' => $record['owner_id']]);
 
     $campaignAccountId = $record['network_data']['fbCampaign']['account_id'];
 
     if ($campaignAccountId)  {
-        if ('act_' . $campaignAccountId !== $settingRecord['ad_account']) {
-            $settingsCollection->updateOne(['owner_id' => $record['owner_id']], ['$set' => ['ad_account' => 'act_' . $campaignAccountId]]);
+        foreach($settingsRecords as $settingsRecord) {
+            if ('act_' . $campaignAccountId !== $settingsRecord['ad_account']) {
+                $settingsCollection->updateMany(['owner_id' => $record['owner_id']], ['$set' => ['ad_account' => 'act_' . $campaignAccountId]]);
+            }
         }
     }
 }

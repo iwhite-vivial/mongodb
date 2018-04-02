@@ -1,3 +1,5 @@
 connection.json
 vendor/
 campaignOut.txt
+out*
+
