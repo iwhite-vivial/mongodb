@@ -1,5 +1,4 @@
 connection.json
 vendor/
-campaignOut.txt
-out*
-
+*.txt
+readAnd*
