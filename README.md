@@ -1,7 +1,16 @@
 # MongoDB Document Editor
-##### This is a quick script to get up and running using PHP to connect to mongo.
+##### This is a quick script to get up and running using PHP to connect to mongo. As of this writing, use PHP5.6
 
- First, run
+Quick Precursor: you may need the mongo and mongodb drivers.
+
+* [PHP Mongo Install Doc - *Nix](http://php.net/manual/en/mongo.installation.php#mongo.installation.nix)
+* [PHP Mongo Install Doc - MacOSX](http://php.net/manual/en/mongo.installation.php#mongo.installation.osx)
+
+Don't use Windows.
+
+If all goes well...
+
+Run
 ```terminal
 $ composer install
 ```
@@ -32,8 +41,9 @@ $someDatabase = $client->someDatabase;
 ```
 
 Once your script is written.
-
-php <yourscript.php>
+```terminal
+$ php <yourscript.php>
+```
 
 For more information, refer to the mongodb documentation and/or
 [MongoDB PHP Doc](http://php.net/manual/en/book.mongo.php)

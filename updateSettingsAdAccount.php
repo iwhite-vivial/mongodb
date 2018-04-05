@@ -24,6 +24,7 @@ $campaignsCollection = $adsDatastore->campaigns;
 
 $campaignRecords = $campaignsCollection->find([], ['owner_id' => 1, 'network_data' => ['fbCampaign' => ['account_id']]]);
 
+$recordAlteredCount = 0;
 foreach ($campaignRecords as $record) {
     $settingsRecords = $settingsCollection->find(['owner_id' => $record['owner_id']]);
 
@@ -32,8 +33,11 @@ foreach ($campaignRecords as $record) {
     if ($campaignAccountId)  {
         foreach($settingsRecords as $settingsRecord) {
             if ('act_' . $campaignAccountId !== $settingsRecord['ad_account']) {
-                $settingsCollection->updateMany(['owner_id' => $record['owner_id']], ['$set' => ['ad_account' => 'act_' . $campaignAccountId]]);
+                $var = $settingsCollection->updateMany(['owner_id' => $record['owner_id']], ['$set' => ['ad_account' => 'act_' . $campaignAccountId]]);
+                $i = $recordAlteredCount + $var->getModifiedCount();
             }
         }
     }
 }
+
+echo "There were " . $recordAlteredCount . " update queries run.";
